@@ -46,9 +46,6 @@ def write(split):
     calculated_values = calculate(standard_work_week, rate, overtime, weird_rate, tax_bands, tax_credit, rate1, rate2)
 
     with open(file_name, "w") as output:
-        # output.writelines(f'''PAYSLIP\n WEEK ENDING: {date} \n Employee: {name}\n
-        # Employee Number: {employee_num}
-        # ''')
         output.write(f"""PAYSLIP\nWEEK ENDING: {date}\nEmployee: {modified_name}\nEmployee Number: {employee_num}\n\n\tHours\t\t\t\tRate\t\tTotal\n\tHours (normal){standard_work_week}\t{rate}\t\t\t{calculated_values[0]}\n\tHours (overtime){overtime}\t{weird_rate}\t\t{calculated_values[1]}\n\tGross Pay\t\t\t\t\t\t{calculated_values[2]}\n\n\tTaxAmount\t\t\tRate\t\tTotal\n\tStandard {tax_bands}\t\t{rate1}%\t\t\t{calculated_values[3]}\n\tHigher\t42.5\t\t{rate2}%\t\t\t{calculated_values[4]}\n\tTotal Tax\t\t\t\t\t\t{calculated_values[5]}\n\tTax Credit\t\t\t\t\t\t{calculated_values[6]}\n\tTotal Deductions\t\t\t\t{calculated_values[7]}\n\tNet Pay\t\t\t\t\t\t\t{calculated_values[8]}
         """)
 
